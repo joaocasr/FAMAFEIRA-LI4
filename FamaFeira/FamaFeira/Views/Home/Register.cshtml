@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model FamaFeira.Models.User;
+
+
+<html>
+<head>
+    <title>Title of the document</title>
+</head>
+
+<body>
+    <h1>Registo</h1>
+    <form action="Register_click" method="post">
+        <p>
+            <tr>
+                <td>@Html.TextBoxFor(m=>m.nome,new { @class = "form-control", placeholder="Nome" })</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(m=>m.username,new { @class = "form-control", placeholder="Username" })</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(m=>m.telemovel,new { @class = "form-control", placeholder="Telemovel" })</td>
+            <tr>
+                <td>@Html.PasswordFor(m=>m.password,new { @class = "form-control", placeholder="Password"})</td>
+            </tr>
+        </p>
+        <p>
+                    <label for="UserType">Expositor</label>
+                    <input type="radio" name="usertype" value="Expositor"/>
+                    <label for="UserType">Cliente</label>
+                    <input type="radio" name="usertype" value="Cliente"/>
+        </p>
+        </p>
+       
+                <input type="submit" onclick="Register_click" value="Registar" />  
+        </p>
+    </form>
+</body>
+
+</html> 
