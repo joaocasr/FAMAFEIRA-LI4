@@ -1,0 +1,20 @@
+﻿@model Feira
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/Feiras.css">
+
+</head>
+<body>
+    <h1>Adicionar Feira</h1>
+    <form action="AddFeira" method="post">
+
+        <td>@Html.TextBoxFor(m => m.tipo,new { @class = "form-control", placeholder="Tipo",style ="width:300px" })</td>
+        <td>@Html.TextBoxFor(m => m.localizacao,new { @class = "form-control", placeholder="Localização",style ="width:300px" })</td>
+        <td>@Html.TextBoxFor(m => m.imagem,new { @class = "form-control", placeholder="Imagem",style ="width:300px" })</td>
+        <td>@Html.TextBoxFor(m => m.data,new { @class = "form-control", placeholder="Data de Evento",style ="width:300px" })</td>
+
+        <input type="submit" onclick="AddFeira" value="Adicionar" />
+    </form>
+</body>
+
+</html>

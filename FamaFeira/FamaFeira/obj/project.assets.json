@@ -9173,11 +9173,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joaop\\source\\repos\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
+      "projectUniqueName": "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
       "projectName": "FamaFeira",
-      "projectPath": "C:\\Users\\joaop\\source\\repos\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
+      "projectPath": "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
       "packagesPath": "C:\\Users\\joaop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joaop\\source\\repos\\FamaFeira\\FamaFeira\\obj\\",
+      "outputPath": "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

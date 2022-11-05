@@ -12,10 +12,18 @@ namespace FamaFeira.Controllers
 
 
         [HttpPost]
+        public IActionResult FeirasView(List<Feira> allFeiras, string username, string usertype)
+        {
+
+            return View(new FeiraViewModel(allFeiras, usertype, username));
+
+        }
+
+        [HttpPost]
         public IActionResult Feiras(string username, string password, string usertype)
         {
             List<Feira> allFeiras = getAllFeiras();
-            if (usertype.Equals("Cliente"))
+            if (usertype.Equals("Cliente") || usertype.Equals("Administrador"))
             {
                 String query = @"SELECT username,password FROM [dbo].[Cliente] WHERE username=" + "'" + username + "';";
                 using (SqlConnection con = new SqlConnection(connectionstring))
@@ -27,15 +35,16 @@ namespace FamaFeira.Controllers
                     {
                         if (rdr.GetString(0).Equals(username) && rdr.GetString(1).Equals(password))
                         {
-                            return View(allFeiras);
+                            return FeirasView(allFeiras, username, usertype);
                         }
                     }
                 }
             }
+            TempData["error"] = "O username ou a password estão incorretos.";
             return Redirect("/Home/Index");
 
-            
         }
+
         [HttpPost]
         public List<Feira> getAllFeiras()
         {

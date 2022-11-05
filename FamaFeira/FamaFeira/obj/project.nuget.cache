@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pvSYYFoGJBFC0WcILy4RDQnWgESZ3aSNEltqym6LV7F2Euc+Lff17JpTeoBVJFEp3rvSOLLbX1a9av0TYmA4Bg==",
+  "dgSpecHash": "y+XMfxj3sjDwVF6SJHXYYMmtZFYOoayzH7YkJB3kE8ervRAMHFtTgMpceCQ+4weuZrLMY2qDTyZutSChUMsIeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joaop\\source\\repos\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
+  "projectFilePath": "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joaop\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\joaop\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

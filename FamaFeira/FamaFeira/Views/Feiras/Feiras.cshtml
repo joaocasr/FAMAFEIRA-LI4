@@ -1,31 +1,37 @@
-﻿@model List<Feira>
+﻿@model FeiraViewModel
 
 <html>
 <head>
     <link rel="stylesheet" href="../../css/Feiras.css">
 </head>
 <body>
- <div class="grid-container">
-@foreach (var feiraitem in Model)
+    @if (Model.getRole().Equals("Administrador"))
     {
-    <div class="elevation">
-    <div class="grid-item">
-        <p>
-            <img src=@feiraitem.imagem width="340px" height="240px">        
-        </p>
-               
-        <p>
-           @Html.ActionLink(@feiraitem.tipo,"Stands","Stands",new { tipo = feiraitem.tipo },null)
-        </p>
-        <p>
-            <td>@Html.DisplayFor(modelItem => feiraitem.localizacao)</td>
-        </p>
-        <p>
-            <td>@Html.DisplayFor(modelItem => feiraitem.data)</td>
-         </p>
-                 
-     </div>
-     </div>
-   }
+        @Html.ActionLink("+ Adicionar Feira","AdicionarFeira","AdicionarFeira",null,null)
+
+    }
+    <div class="grid-container">
+        @foreach (var feiraitem in Model.getallFeiras())
+        {
+            <div class="elevation">
+                <div class="grid-item">
+
+                    <p>
+                        <img src=@feiraitem.imagem width="340px" height="240px">
+                    </p>
+
+                    <p>
+                        @Html.ActionLink(@feiraitem.tipo,"Stands","Stands",new {user=Model.getUsername(),tipo = feiraitem.tipo},null)
+                    </p>
+                    <p>
+                        <td>@Html.DisplayFor(modelItem => feiraitem.localizacao)</td>
+                    </p>
+                    <p>
+                        <td>@Html.DisplayFor(modelItem => feiraitem.data)</td>
+                    </p>
+
+                </div>
+            </div>
+        }
 </body>
 </html>

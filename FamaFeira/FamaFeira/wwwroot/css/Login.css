@@ -1,0 +1,14 @@
+﻿.close {
+    color: white;
+    font-size: 15px;
+    line-height: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alertmessage {
+    width: 500px;
+    padding: 50px;
+    background-color: #f14b4b;
+    color: white;
+}

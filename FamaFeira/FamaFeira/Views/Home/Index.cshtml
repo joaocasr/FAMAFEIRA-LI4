@@ -5,7 +5,17 @@
 @model FamaFeira.Models.User; 
 
 <html>
+<head>
+    <link rel="stylesheet" href="../../css/Login.css">
+
+</head>
 <body>
+    @if (TempData["error"] != null)
+    {
+        <div class="alertmessage">
+            <span class="close" onclick="this.parentElement.style.display='none';">@TempData["error"]</span>
+        </div>
+    }
 <div class="text-center">
     <img src="~/Images/logo.png" width="250px"/>
     @using (Html.BeginForm("Feiras", "Feiras", FormMethod.Post)){

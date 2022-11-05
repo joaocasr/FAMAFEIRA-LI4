@@ -3,7 +3,7 @@
     public class Feira
     {
 
-        public Feira(string tipo, string localizacao,string imagem,string data)
+        public Feira(string tipo, string localizacao, string imagem, string data)
         {
             this.tipo = tipo;
             this.localizacao = localizacao;
@@ -18,6 +18,10 @@
 
         public string data { get; set; }
 
+        public String getTipo()
+        {
+            return this.tipo;
+        }
 
     }
 }

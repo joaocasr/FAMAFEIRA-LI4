@@ -2,15 +2,15 @@
 {
     public class Stand
     {
-        public Stand(string designacao,string descricao,string imagem)
+        public Stand(string designacao, string descricao, string imagem)
         {
             this.designacao = designacao;
             this.descricao = descricao;
             this.imagem = imagem;
-        
+
         }
 
-        public Stand(string designacao, string descricao, string imagem,string recomendacao, string empresa)
+        public Stand(string designacao, string descricao, string imagem, string recomendacao, string empresa)
         {
             this.designacao = designacao;
             this.descricao = descricao;
