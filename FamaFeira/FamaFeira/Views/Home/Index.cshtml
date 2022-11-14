@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model FamaFeira.Models.User; 
+
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/Login.css">
+
+</head>
+<body>
+    @if (TempData["error"] != null)
+    {
+        <div class="alertmessage">
+            <span class="alerttext" onclick="this.parentElement.style.display='none';">@TempData["error"]</span>
+        </div>
+    }
+<div class="text-center">
+    <img src="~/Images/logo.png" width="250px"/>
+    @using (Html.BeginForm("Feiras", "Feiras", FormMethod.Post)){
+            <table align="center">
+        <tr>
+            <td>@Html.TextBoxFor(m=>m.username,new { @class = "form-control", placeholder="Username" })</td>
+        <tr>
+            <td>@Html.PasswordFor(m=>m.password,new { @class = "form-control", placeholder="Password"})</td>
+        </tr>
+            <p>
+                <label for="UserType">Administrador</label>
+                <input type="radio" name="usertype" value="Administrador" />
+                <label for="UserType">Expositor</label>
+                <input type="radio" name="usertype" value="Expositor" />
+                <label for="UserType">Cliente</label>
+                <input type="radio" name="usertype" value="Cliente" />
+            </p>
+    </table>
+        <input type="submit" value="Login" />
+    }
+</div>
+</body>
+</html>
+
+

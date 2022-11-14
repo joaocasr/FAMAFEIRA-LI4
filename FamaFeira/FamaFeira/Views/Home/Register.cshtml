@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model FamaFeira.Models.User;
+
+
+<html>
+<head>
+    <title>Title of the document</title>
+</head>
+
+<body>
+    <h1>Registo</h1>
+    <form action="Register_click" method="post">
+        <p>
+            <label for="UserType">Expositor</label>
+            <input type="radio" onclick=hide() name="usertype" value="Expositor" data-toggle-value="expChecked" />
+            <label for="UserType">Cliente</label>
+            <input type="radio" onclick=show() name="usertype" value="Cliente" data-toggle-value="cliChecked" />
+        </p>
+        <p>
+            <tr>
+                <div id="nome">@Html.TextBoxFor(m=>m.nome,new { @class = "form-control", placeholder="Nome" })</div>
+            </tr>
+            <tr>
+                <div id="username">@Html.TextBoxFor(m=>m.username,new { @class = "form-control", placeholder="Username" })</div>
+            </tr>
+            <tr>
+                <div id="telemovel">@Html.TextBoxFor(m=>m.telemovel,new { @class = "form-control", placeholder="Telemovel" })</div>
+            <tr>
+                <div id="password">@Html.PasswordFor(m=>m.password,new { @class = "form-control", placeholder="Password"})</>
+            </tr>
+        </p>
+        <p>
+                <input type="submit" onclick="Register_click" value="Registar" />  
+        </p>
+    </form>
+    <script>
+        function hide() {
+            var x = document.getElementById("telemovel");
+            x.style.display = "none";
+            
+        } 
+        function show() {
+            var x = document.getElementById("telemovel");
+            x.style.display = "block";
+        }
+    </script>
+</body>
+
+</html> 
