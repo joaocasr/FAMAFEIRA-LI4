@@ -1,0 +1,33 @@
+﻿@model Feira
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/Feiras.css">
+
+</head>
+<body>
+    <div>
+    <h1>Adicionar Feira</h1>
+        <form action="AddFeira" method="post">
+
+c            <td>@Html.TextBoxFor(m => m.designacao,new { @class = "form-control", placeholder="Designação",style ="width:300px" })</td>
+            <td>@Html.TextBoxFor(m => m.localizacao,new { @class = "form-control", placeholder="Localização",style ="width:300px" })</td>
+            <td>@Html.TextBoxFor(m => m.imagem,new { @class = "form-control", placeholder="Imagem",style ="width:300px" })</td>
+            <td>@Html.TextBoxFor(m => m.data,new { @class = "form-control", placeholder="Data de Evento",style ="width:300px" })</td>
+
+            <input type="submit" onclick="AddFeira" value="Adicionar" />
+        </form>
+    </div>
+    @if (TempData["errorfeira"] != null)
+    {
+        <div class="alertmessage">
+            <span class="alerttext" onclick="this.parentElement.style.display='none';">@TempData["errorfeira"]</span>
+        </div>
+    }
+    @if (TempData["rightfeira"] != null)
+    {
+        <div class="sucessmessage">
+            <span class="alerttext" onclick="this.parentElement.style.display='none';">@TempData["rightfeira"]</span>
+        </div>
+    }
+</body>
+</html>

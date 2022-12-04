@@ -1,0 +1,99 @@
+﻿@model ProdutoViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/Produtos.css">
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            column-gap: 10px;
+            row-gap: 1em;
+        }
+
+        .costumitem {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            font-size: 15px;
+            width: 380px;
+            background-color: #e9e4e8;
+            border-radius: 15px;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+    </style>
+</head>
+<body>
+    @if (TempData["successBuy"] != null)
+    {
+        <div class="sucessmessage">
+            <span class="alerttext" onclick="this.parentElement.style.display='none';">@TempData["successBuy"]</span>
+        </div>
+    }
+    @if (Model.getRole().Equals("Cliente"))
+    {
+        <div class="wrapper">
+            @foreach (var produtoitem in Model.getallProdutos())
+            {
+                <div class="costumitem">
+                    <p>
+                        <img src=@produtoitem.imagem width="150px" height="150px">
+                    </p>
+                    <p>
+                        <td>@Html.DisplayFor(modelItem => produtoitem.codigo)</td>
+                    </p>
+                    <p>
+                        <td>@Html.DisplayFor(modelItem => produtoitem.nome)</td>
+                    </p>
+                    <p>
+                        Preço: @Html.DisplayFor(modelItem => produtoitem.preco)€
+                    </p>
+                    @using (Html.BeginForm("addCompra", "Produtos", new { username = TempData["username"], role = TempData["role"], designacao = TempData["designacao"] }, FormMethod.Post))
+                    {
+                       <td>
+                            <label for="quantidade">Quantidade:</label>
+                            <input type="text" id=@produtoitem.codigo name="quantidade">
+                       </td>
+                       <td><input type="submit" id=@produtoitem.codigo onclick="passValue(this.id)" value="Efetuar Pagamento"></td>
+                    }
+                </div>
+            }
+        </div>
+    }
+    @if (Model.getRole().Equals("Expositor"))
+    {
+        <div>
+            @Html.ActionLink("Consultar Registos","Registo","Registo",new {user=Model.getUsername()},null);
+        </div>
+        <div class="wrapper">
+            @foreach (var produtoitem in Model.getallProdutos())
+            {
+                <div class="costumitem">
+                    <p>
+                        <img src=@produtoitem.imagem width="150px" height="150px">
+                    </p>
+                    <p>
+                        <td>@Html.DisplayFor(modelItem => produtoitem.codigo)</td>
+                    </p>
+                    <p>
+                        <td>@Html.DisplayFor(modelItem => produtoitem.nome)</td>
+                    </p>
+                    <p>
+                        Preço: @Html.DisplayFor(modelItem => produtoitem.preco)€
+                    </p>
+                </div>
+            }
+        </div>
+    }
+    <script>
+        function passValue(id) {
+            document.getElementById(id).value += ";"+id;
+        }
+    </script>
+</body>
+</html>

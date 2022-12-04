@@ -1,0 +1,36 @@
+﻿@model RegistoViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/registo.css">
+</head>
+<body>
+    <h1>Olá, @Model.getUsername() ! Bem-vindo ao seu menu de vendas.</h1><br>
+    <table class="d">
+        <tr>
+            <th>Data</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+            <th>Cliente</th>
+            <th>Email</th>
+            <th>Telemóvel</th>
+        </tr>
+    @foreach(var registoitem in Model.getAllRegistos()){
+            <tr>
+                <td>@Html.DisplayFor(modelitem => registoitem.data)</td>
+                <td>@Html.DisplayFor(modelitem => registoitem.nome)</td>
+                <td>@Html.DisplayFor(modelitem => registoitem.quantidade)</td>
+                <td>@Html.DisplayFor(modelitem => registoitem.valor) €</td>
+                <td>@Html.DisplayFor(modelitem => registoitem.cliente)</td>
+                <td>@Html.DisplayFor(modelitem => registoitem.email)</td>
+                <td>@Html.DisplayFor(modelitem => registoitem.telemovel)</td>
+            </tr>
+    }
+    </table>
+</body>
+</html>
