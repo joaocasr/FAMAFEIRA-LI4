@@ -100,7 +100,8 @@ SELECT tipo,localizacao FROM [dbo].[Feira];
 
 SELECT TOP 1 idCompra FROM [FamaFeiradb].[dbo].[Compra] ORDER BY idCompra DESC;
 
-DELETE FROM [FamaFeiradb].[dbo].[Compra];
+-- DELETE FROM [FamaFeiradb].[dbo].[Compra];
+-- DELETE FROM [FamaFeiradb].[dbo].[CompraProduto];
 DELETE FROM [FamaFeiradb].[dbo].[Produto] WHERE idProduto=1;
 SELECT COUNT(username) as total FROM [FamaFeiradb].[dbo].[Cliente]
 		WHERE username='joao';
@@ -139,4 +140,9 @@ INSERT INTO [FamaFeiradb].[dbo].[Produto] VALUES(999.99,'Projetor Samsung The Fr
 INSERT INTO [FamaFeiradb].[dbo].[Produto] VALUES(1559,'Laptop Microsoft Surface Studio Corei5-11300H','https://static.fnac-static.com/multimedia/Images/PT/NR/8e/e2/76/7791246/1541-1.jpg','C02X',1);
 INSERT INTO [FamaFeiradb].[dbo].[Produto] VALUES(149.99,'Kobo Clara 2E','https://cdn.shopify.com/s/files/1/0933/2950/products/B_PT-Device_Angled_1080x1080_8a7c8264-439f-4504-b734-ccbc4adcb95b_652x652.jpg','C03X',1);
 
+ SELECT C.data_compra,P.nome,C.quantidade,CP.valor,CL.nome,CL.email,CL.telemovel FROM [FamaFeiradb].[dbo].[Compra] AS C 
+ INNER JOIN [FamaFeiradb].[dbo].[CompraProduto] AS CP ON C.idCompra=CP.compra_idCompra
+ INNER JOIN [FamaFeiradb].[dbo].[Cliente] AS CL ON CL.idCliente=C.fk_idCliente
+ INNER JOIN [FamaFeiradb].[dbo].[Produto] AS P ON  CP.produto_idProduto=P.idProduto
+ WHERE C.fk_idExpositor=1;
 
