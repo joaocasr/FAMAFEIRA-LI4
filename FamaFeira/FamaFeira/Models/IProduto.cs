@@ -9,5 +9,10 @@
         public double getPreco(string codigo);
         public List<Registo> consultaRegistos(string username);
 
+        public bool existeProduto(string nome);
+        public int adicionaProduto(float preco, string nome, string imagem, string codigo);
+
+        public int removeProduto(string nome);
+
     }
 }

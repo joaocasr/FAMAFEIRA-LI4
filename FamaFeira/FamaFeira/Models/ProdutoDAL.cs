@@ -174,5 +174,64 @@ WHERE C.fk_idExpositor=" + "'" + id + "';";
         }
 
 
+        public bool existeProduto(string nome)
+        {
+
+            bool found = false;
+            String query = @"SELECT nome FROM [dbo].[Produto]";
+            using (SqlConnection con = new SqlConnection(connectionstring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (rdr.GetString(0).Equals(nome)) found = true;
+                }
+                rdr.Close();
+            }
+            return found;
+        }
+
+        public int adicionaProduto(float preco, string nome, string imagem, string codigo)
+        {
+            bool b = this.existeProduto(nome);
+            int result = 1;
+            if (b.Equals(true)) result = 0;
+            if (result == 1)
+            {
+                String query = @"INSERT INTO [dbo].[Produto] ([preco],[nome],[imagem],[codigo]) VALUES ('" + preco + "','" + nome + "','" + imagem + "','" + codigo + "','" + 1 + "');";
+                using (SqlConnection con = new SqlConnection(connectionstring))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    result = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            return result;
+        }
+
+        public int removeProduto(string nome)
+        {
+            bool b = this.existeProduto(nome);
+            int result = 1;
+            if (b.Equals(true)) result = 0;
+            if (result == 1)
+            {
+
+                String query = @"DELETE FROM [dbo].[Produto] WHERE [nome] = " + nome;
+                using (SqlConnection con = new SqlConnection(connectionstring))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    result = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            return result;
+        }
+
+
     }
 }

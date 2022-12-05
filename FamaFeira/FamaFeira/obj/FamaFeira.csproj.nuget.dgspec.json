@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\FamaFeira.csproj": {}
+    "C:\\Users\\joaof\\Desktop\\22e23\\LI4\\FAMAFEIRA-LI4\\FamaFeira\\FamaFeira\\FamaFeira.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\FamaFeira.csproj": {
+    "C:\\Users\\joaof\\Desktop\\22e23\\LI4\\FAMAFEIRA-LI4\\FamaFeira\\FamaFeira\\FamaFeira.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
+        "projectUniqueName": "C:\\Users\\joaof\\Desktop\\22e23\\LI4\\FAMAFEIRA-LI4\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
         "projectName": "FamaFeira",
-        "projectPath": "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
-        "packagesPath": "C:\\Users\\joaop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joaop\\Desktop\\FamaFeira\\FamaFeira\\obj\\",
+        "projectPath": "C:\\Users\\joaof\\Desktop\\22e23\\LI4\\FAMAFEIRA-LI4\\FamaFeira\\FamaFeira\\FamaFeira.csproj",
+        "packagesPath": "C:\\Users\\joaof\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joaof\\Desktop\\22e23\\LI4\\FAMAFEIRA-LI4\\FamaFeira\\FamaFeira\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\joaop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joaof\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,7 +25,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,8 +59,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -72,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

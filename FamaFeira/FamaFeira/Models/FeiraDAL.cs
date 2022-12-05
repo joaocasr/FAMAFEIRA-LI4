@@ -25,6 +25,7 @@ namespace FamaFeira.Models
             return allFeiras;
         }
 
+        // aqui nao deveria ser coluna 3?
         public bool existeFeira(string designacao)
         {
 
@@ -51,6 +52,26 @@ namespace FamaFeira.Models
             if (result == 1)
             {
                 String query = @"INSERT INTO [dbo].[Feira] ([tipo],[designacao],[localizacao],[imagem],[dataFeira],[fk_idAdmin]) VALUES ('" + tipo + "','" + designacao + "','" + localizacao + "','" + imagem + "','" + data + "','" + 1 + "');";
+                using (SqlConnection con = new SqlConnection(connectionstring))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    result = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            return result;
+        }
+
+        public int removeFeira (string designacao)
+        {
+            bool b = this.existeFeira(designacao);
+            int result = 1;
+            if (b.Equals(true)) result = 0;
+            if (result == 1)
+            {
+           
+                String query = @"DELETE FROM [dbo].[Feira] WHERE [designacao] = " + designacao; 
                 using (SqlConnection con = new SqlConnection(connectionstring))
                 {
                     con.Open();

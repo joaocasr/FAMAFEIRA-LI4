@@ -45,5 +45,65 @@ namespace FamaFeira.Models
             return nome;
         }
 
+
+        public bool existeStand(string designacao)
+        {
+
+            bool found = false;
+            String query = @"SELECT designacao FROM [dbo].[Produto]";
+            using (SqlConnection con = new SqlConnection(connectionstring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (rdr.GetString(0).Equals(designacao)) found = true;
+                }
+                rdr.Close();
+            }
+            return found;
+        }
+
+        public int adicionaStand(string designacao, string descricao, string imagem, string recomendacao, string empresa)
+        {
+            bool b = this.existeStand(designacao);
+            int result = 1;
+            if (b.Equals(true)) result = 0;
+            if (result == 1)
+            {
+                String query = @"INSERT INTO [dbo].[Stand] ([designacao],[descricao],[imagem],[recomendacao],[empresa]) VALUES ('" + designacao + "','" + descricao + "','" + imagem + "','" + recomendacao + "','" + empresa + "','" + 1 + "');";
+                using (SqlConnection con = new SqlConnection(connectionstring))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    result = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            return result;
+        }
+
+        public int removeStand(string designacao)
+        {
+            bool b = this.existeStand(designacao);
+            int result = 1;
+            if (b.Equals(true)) result = 0;
+            if (result == 1)
+            {
+
+                String query = @"DELETE FROM [dbo].[Stand] WHERE [designacao] = " + designacao;
+                using (SqlConnection con = new SqlConnection(connectionstring))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    result = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            return result;
+        }
+
+
     }
 }
