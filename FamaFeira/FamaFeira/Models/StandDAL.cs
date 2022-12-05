@@ -50,7 +50,7 @@ namespace FamaFeira.Models
         {
 
             bool found = false;
-            String query = @"SELECT designacao FROM [dbo].[Produto]";
+            String query = @"SELECT designacao FROM [dbo].[Stand]";
             using (SqlConnection con = new SqlConnection(connectionstring))
             {
                 con.Open();
