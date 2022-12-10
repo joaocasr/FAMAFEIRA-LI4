@@ -83,9 +83,9 @@ CREATE TABLE [FamaFeiradb].[dbo].[Stand](
 	fk_idExpositor INT NOT NULL,
     fk_idAdmin INT NOT NULL,
     fk_idFeira INT NULL,
-    CONSTRAINT fk_feira FOREIGN KEY(fk_idFeira) REFERENCES [FamaFeiradb].[dbo].[Feira](idFeira),
+    CONSTRAINT fk_Expositor FOREIGN KEY(fk_idExpositor) REFERENCES [FamaFeiradb].[dbo].[Expositor](idExpositor),
 	CONSTRAINT fk_Administrador2 FOREIGN KEY(fk_idAdmin) REFERENCES [FamaFeiradb].[dbo].[Administrador](idAdmin),
-    CONSTRAINT fk_Expositor FOREIGN KEY(fk_idExpositor) REFERENCES [FamaFeiradb].[dbo].[Expositor](idExpositor)
+    CONSTRAINT fk_feira FOREIGN KEY(fk_idFeira) REFERENCES [FamaFeiradb].[dbo].[Feira](idFeira)
 );
 
 SELECT * FROM [FamaFeiradb].[dbo].[Cliente];
@@ -97,16 +97,16 @@ SELECT * FROM [FamaFeiradb].[dbo].[Administrador];
 SELECT * FROM [FamaFeiradb].[dbo].[Feira];
 SELECT * FROM [FamaFeiradb].[dbo].[Stand];
 SELECT tipo,localizacao FROM [dbo].[Feira];
-
+--DELETE FROM [FamaFeiradb].[dbo].[Stand] WHERE fk_idFeira=2;
 SELECT TOP 1 idCompra FROM [FamaFeiradb].[dbo].[Compra] ORDER BY idCompra DESC;
 
 -- DELETE FROM [FamaFeiradb].[dbo].[Compra];
 -- DELETE FROM [FamaFeiradb].[dbo].[CompraProduto];
-DELETE FROM [FamaFeiradb].[dbo].[Produto] WHERE idProduto=1;
+DELETE FROM [FamaFeiradb].[dbo].[Produto] WHERE idProduto=5;
 SELECT COUNT(username) as total FROM [FamaFeiradb].[dbo].[Cliente]
 		WHERE username='joao';
 
-DELETE FROM [FamaFeiradb].[dbo].[Feira] WHERE idFeira = 4;
+DELETE FROM [FamaFeiradb].[dbo].[Feira] WHERE idFeira = 8;
 SELECT S.designacao FROM [FamaFeiradb].[dbo].[Feira] AS F
 	INNER JOIN [FamaFeiradb].[dbo].[Stand] AS S ON F.idFeira=S.fk_idFeira WHERE F.tipo='Feira de Cultura';
 
@@ -124,7 +124,7 @@ INSERT INTO [FamaFeiradb].[dbo].[Feira] VALUES('Feira Empresarial','Feira C','Av
 -- UPDATE [FamaFeiradb].[dbo].[Feira] SET imagem='https://upload.wikimedia.org/wikipedia/commons/0/06/LinuxWorldBoston2006.agr.JPG' WHERE idFeira=3;
 
 INSERT INTO [FamaFeiradb].[dbo].[Stand] VALUES('Stand A','Inspirámo-nos em si e nos seus serviços para desenvolvermos o melhor da tecnologia para o seu negócio.','https://st.depositphotos.com/1637787/2927/i/450/depositphotos_29270411-stock-photo-happy-man-working-with-laptop.jpg','Rua dos Alfaiates 4756-453,Hotel Clementis','Consudigital',1,1,3);
-INSERT INTO [FamaFeiradb].[dbo].[Stand] VALUES('Stand B','Colocámos os seus produtos à venda através de modelos e-commerce. Quer ser um fornecedor?','https://upcuesta.com.br/wp-content/uploads/2021/07/mulher-negra-trabalhand-em-home-office.jpg','Rua dos Caídos,4353-532- Motel Londrino,3 estrelas','ShipSell',1,1,3);
+INSERT INTO [FamaFeiradb].[dbo].[Stand] VALUES('Stand B','Colocámos os seus produtos à venda através de modelos e-commerce. Quer ser um fornecedor?','https://upcuesta.com.br/wp-content/uploads/2021/07/mulher-negra-trabalhand-em-home-office.jpg','Rua dos Caídos,4353-532- Motel Londrino,3 estrelas','ShipSell',2,1,3);
 
 INSERT INTO [FamaFeiradb].[dbo].[Cliente] VALUES('João','joao','969123456','joaopass','joao@gmail.com','Rua dos Biscainhos-Braga');
 INSERT INTO [FamaFeiradb].[dbo].[Cliente] VALUES('Alexandre','alex','936737262','alexpass','alex@gmail.com','Rua dos Fixes');
@@ -145,4 +145,8 @@ INSERT INTO [FamaFeiradb].[dbo].[Produto] VALUES(149.99,'Kobo Clara 2E','https:/
  INNER JOIN [FamaFeiradb].[dbo].[Cliente] AS CL ON CL.idCliente=C.fk_idCliente
  INNER JOIN [FamaFeiradb].[dbo].[Produto] AS P ON  CP.produto_idProduto=P.idProduto
  WHERE C.fk_idExpositor=1;
+
+ SELECT P.nome,P.imagem,P.codigo,P.preco FROM [FamaFeiradb].[dbo].[Stand] AS S
+	INNER JOIN [FamaFeiradb].[dbo].[Produto] AS P ON S.fk_idExpositor=P.fk_idExpositor WHERE S.designacao='Stand B';
+
 
