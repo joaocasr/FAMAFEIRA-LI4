@@ -1,0 +1,33 @@
+﻿@model Produto
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/Produtos.css">
+</head>
+<body>
+    @if (TempData["erroAddProduto"] != null)
+    {
+        <div>
+            <strong>Erro!</strong> O produto que digitou já existe.
+        </div>
+    }
+    @if (TempData["erroSuccProduto"] != null)
+    {
+        <div>
+            <strong>Sucesso!</strong> O produto que digitou foi adicionado com sucesso.
+        </div>
+    }
+    <div>
+        <h1>Adicionar Produto</h1>
+        <form action="adicionaVendaProduto" method="post">
+
+            <td>@Html.TextBoxFor(m=>m.codigo,new { @class = "form-control", placeholder="Código",style ="width:300px" })</td>
+            <td>@Html.TextBoxFor(m=>m.nome,new { @class = "form-control", placeholder="Nome",style ="width:300px" })</td>
+            <td>@Html.TextBoxFor(m=>m.imagem,new { @class = "form-control", placeholder="Imagem",style ="width:300px" })</td>
+            <td>@Html.TextBoxFor(m=>m.preco,new { @class = "form-control", placeholder="Preço",style ="width:300px" })</td>
+            <td>@Html.TextBox("user",null, htmlAttributes: new { @class = "form-control", placeholder="Username",style ="width:300px" })</td><br>
+
+            <input type="submit" onclick="adicionaVendaProduto" value="Adicionar" />
+        </form>
+    </div>
+</body>
+</html>
