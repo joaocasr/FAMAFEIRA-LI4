@@ -1,0 +1,62 @@
+﻿@model StandViewModel
+
+
+@{
+    Layout = "_Layout";
+}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="../../css/Stands.css">
+    </head>
+    <body>
+    @if (!Model.getRole().Equals("Administrador"))
+    {
+        <div class="grid-container">
+            @foreach (var standitem in Model.getallStands())
+            {
+                <div class="elevation">
+                    <div class="grid-item">
+                        <div class="flex-container">
+                            <img class="flex-child" src=@standitem.imagem class="flex-child" width=100px />
+                            <div class="flex-child">
+                                <div class="module">
+                                    <h4>@Html.ActionLink(@standitem.designacao,"Produtos","Produtos",routeValues: new {user=Model.getUsername(),role=Model.getRole(),designacao=@standitem.designacao,feira=Model.getFeira()},null)</h4>
+                                    <p>@standitem.descricao</p>
+                                    <p>Empresa: @standitem.empresa</p>
+                                    <p>Recomendação: @standitem.recomendacao</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }else{
+        <p>
+            @Html.ActionLink("+ Adicionar Stand","AdicionarStand","AdicionarStand",new {feira = Model.getFeira() },null)
+            @Html.ActionLink("+ Remover Stand","RemoverStand","RemoverStand",null,null)
+        </p>
+        <div class="grid-container">
+            @foreach (var standitem in Model.getallStands())
+            {
+                <div class="elevation">
+                    <div class="grid-item">
+                        <div class="flex-container">
+                            <img class="flex-child" src=@standitem.imagem class="flex-child" width=100px />
+                            <div class="flex-child">
+                                <div class="module">
+                                    <p>@standitem.designacao</p>
+                                    <p>@standitem.descricao</p>
+                                    <p>Empresa: @standitem.empresa</p>
+                                    <p>Recomendação: @standitem.recomendacao</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    </body>
+</html>
