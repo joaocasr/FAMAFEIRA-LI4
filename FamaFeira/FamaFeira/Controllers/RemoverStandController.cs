@@ -21,7 +21,9 @@ namespace FamaFeira.Controllers
             int r = -1;
             r=istand.removeStand(designacao);
             if (r == 1) TempData["remStandError"] = 1;
-            return Redirect("/RemoverStand/RemoverStand");
+            //return Redirect("/RemoverStand/RemoverStand");
+            return Redirect("/admin/Administrador/" + designacao);
+
         }
     }
 }

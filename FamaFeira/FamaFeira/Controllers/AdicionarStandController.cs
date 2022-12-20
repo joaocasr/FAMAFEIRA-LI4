@@ -1,4 +1,5 @@
 ﻿using FamaFeira.Models.DAL;
+using FamaFeira.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FamaFeira.Controllers
@@ -12,15 +13,15 @@ namespace FamaFeira.Controllers
             this.istand = interfacestand;
         }
 
-        public IActionResult AdicionarStand()
+        public IActionResult AdicionarStand(string feira,string exp)
         {
-            return View();
+            return View(new Expositivo(exp));
         }
 
-        public IActionResult AddStand(string designacao,string descricao,string imagem,string recomendacao,string empresa,string expositor,string feira)
+        public IActionResult AddStand(string designacao,string descricao,string imagem,string empresa,string expositor,string feira,string expositivo, string recomendacao)
         {
             istand.adicionaStand(designacao, descricao, imagem, recomendacao, empresa, expositor, feira);
-            return Redirect("/AdicionarStand/AdicionarStand");
+            return Redirect("/admin/Administrador/" + feira);
         }
     }
 }

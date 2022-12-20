@@ -1,4 +1,4 @@
-﻿@model Stand
+﻿@model Expositivo
 <html>
 <head>
     <link rel="stylesheet" href="../../css/Stands.css">
@@ -7,14 +7,19 @@
     <div>
         <h1>Adicionar Stand</h1>
         <form action="AddStand" method="post">
-
-            <td>@Html.TextBoxFor(m => m.designacao,new { @class = "form-control", placeholder="Designação",style ="width:300px" })</td>
-            <td>@Html.TextBoxFor(m => m.descricao,new { @class = "form-control", placeholder="Descrição",style ="width:300px" })</td>
-            <td>@Html.TextBoxFor(m => m.imagem,new { @class = "form-control", placeholder="Imagem",style ="width:300px" })</td>
-            <td>@Html.TextBoxFor(m => m.recomendacao,new { @class = "form-control", placeholder="Recomendação",style ="width:300px" })</td>
-            <td>@Html.TextBoxFor(m => m.empresa,new { @class = "form-control", placeholder="Empresa",style ="width:300px" })</td>
+            <td>@Html.TextBox("designacao",null,htmlAttributes: new { placeholder="Designação",style ="width:300px" })</td><br>
+            <td>@Html.TextBox("descricao",null,htmlAttributes: new { placeholder="Descrição",style ="width:300px" })</td><br>
+            <td>@Html.TextBox("imagem",null,htmlAttributes: new { placeholder="Imagem",style ="width:300px" })</td><br>
+            <td>@Html.TextBox("empresa",null,htmlAttributes: new { placeholder="Empresa",style ="width:300px" })</td><br>
             <td>@Html.TextBox("expositor",null,htmlAttributes: new { placeholder="Expositor",style ="width:300px" })</td><br>
             <td>@Html.TextBox("feira",null, htmlAttributes: new {placeholder="Feira",style ="width:300px" })</td><br>
+            <td>@Html.TextBox("expositivo",null, htmlAttributes: new {value=Model.getExpositivo().ToString(),style ="display : none" })</td><br>
+            @if (Model.getExpositivo() == true)
+            {
+                <td>@Html.TextBox("recomendacao",null,htmlAttributes: new { placeholder="Recomendação"})</td><br>
+            }else{
+                <td>@Html.TextBox("recomendacao",null,htmlAttributes: new { placeholder="Recomendação",value="null",style ="display : none" })</td>
+            }
 
             <input type="submit" onclick="AddStand" value="Adicionar" />
         </form>

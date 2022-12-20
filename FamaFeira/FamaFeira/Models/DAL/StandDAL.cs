@@ -141,11 +141,11 @@ namespace FamaFeira.Models.DAL
         {
             bool b = existeStand(designacao);
             int result = 1;
-            if (b.Equals(true)) result = 0;
+            if (b==true) result = 0;
             if (result == 0)
             {
 
-                string query = @"DELETE FROM [FamaFeiradb].[dbo].[Stand] WHERE [designacao] = " + designacao;
+                string query = @"DELETE FROM [FamaFeiradb].[dbo].[Stand] WHERE [designacao]=" + "'" + designacao + "';";
                 using (SqlConnection con = new SqlConnection(connectionstring))
                 {
                     con.Open();
@@ -155,6 +155,24 @@ namespace FamaFeira.Models.DAL
                 }
             }
             return result;
+        }
+
+        public bool isExpositivo(string designacao)
+        {
+            string query = @"SELECT tipo FROM [FamaFeiradb].[dbo].[Feira] WHERE designacao=" + "'" + designacao + "';";
+            bool b = false;
+            using (SqlConnection con = new SqlConnection(connectionstring))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (rdr.GetString(0).Equals("Feira de Empreendedorismo") || rdr.GetString(0).Equals("Feira de Negócios") || rdr.GetString(0).Equals("Feira Empresarial")) b = true;
+                }
+                rdr.Close();
+            }
+            return b;
         }
 
     }

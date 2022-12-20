@@ -24,7 +24,10 @@
                                     <h4>@Html.ActionLink(@standitem.designacao,"Produtos","Produtos",routeValues: new {user=Model.getUsername(),role=Model.getRole(),designacao=@standitem.designacao,feira=Model.getFeira()},null)</h4>
                                     <p>@standitem.descricao</p>
                                     <p>Empresa: @standitem.empresa</p>
-                                    <p>Recomendação: @standitem.recomendacao</p>
+                                    @if (Model.isExp()==true)
+                                    {
+                                        <p>Recomendação: @standitem.recomendacao</p>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -34,7 +37,7 @@
         </div>
     }else{
         <p>
-            @Html.ActionLink("+ Adicionar Stand","AdicionarStand","AdicionarStand",new {feira = Model.getFeira() },null)
+            @Html.ActionLink("+ Adicionar Stand","AdicionarStand","AdicionarStand",new {feira = Model.getFeira(), exp=Model.isExp().ToString() },null)
             @Html.ActionLink("+ Remover Stand","RemoverStand","RemoverStand",null,null)
         </p>
         <div class="grid-container">
@@ -49,7 +52,10 @@
                                     <p>@standitem.designacao</p>
                                     <p>@standitem.descricao</p>
                                     <p>Empresa: @standitem.empresa</p>
-                                    <p>Recomendação: @standitem.recomendacao</p>
+                                    @if (Model.isExp() == true)
+                                    {
+                                        <p>Recomendação: @standitem.recomendacao</p>
+                                    }
                                 </div>
                             </div>
                         </div>

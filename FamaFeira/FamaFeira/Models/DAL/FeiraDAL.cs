@@ -48,7 +48,7 @@ namespace FamaFeira.Models.DAL
         {
             bool b = existeFeira(designacao);
             int result = 1;
-            if (b.Equals(true)) result = 0;
+            if (b==true) result = 0;
             if (result == 1)
             {
                 string query = @"INSERT INTO [FamaFeiradb].[dbo].[Feira] ([tipo],[designacao],[localizacao],[imagem],[dataFeira],[fk_idAdmin]) VALUES ('" + tipo + "','" + designacao + "','" + localizacao + "','" + imagem + "','" + data + "','" + 1 + "');";

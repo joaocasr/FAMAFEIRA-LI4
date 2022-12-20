@@ -92,7 +92,7 @@ namespace FamaFeira.Models.DAL
         {
             using (SqlConnection con = new SqlConnection(connectionstring))
             {
-                string query = @"INSERT INTO [dbo].[Cliente]
+                string query = @"INSERT INTO [dbo].[Expositor]
                ([nome]
                ,[username]
                ,[password])

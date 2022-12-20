@@ -1,4 +1,5 @@
-﻿using FamaFeira.Models.DAL;
+﻿using FamaFeira.Models;
+using FamaFeira.Models.DAL;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FamaFeira.Controllers

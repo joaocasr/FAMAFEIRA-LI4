@@ -7,12 +7,15 @@
         public string username { get; set; }
         public string feira { get; set; }
 
-        public StandViewModel(List<Stand> allStands, string role, string username, string feira)
+        public bool expositivo { get; set; }    
+
+        public StandViewModel(List<Stand> allStands, string role, string username, string feira, bool expositivo)
         {
             this.allStands = allStands;
             this.role = role;
             this.username = username;
             this.feira = feira;
+            this.expositivo = expositivo;
         }
 
         public List<Stand> getallStands()
@@ -33,6 +36,11 @@
         public string getFeira()
         {
             return feira;
+        }
+
+        public bool isExp()
+        {
+            return this.expositivo;
         }
     }
 

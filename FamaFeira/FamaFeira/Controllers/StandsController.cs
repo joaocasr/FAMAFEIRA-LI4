@@ -21,7 +21,8 @@ namespace FamaFeira.Controllers
         {
             
             List<Stand> allStands = istand.getStandsFromFeira(designacao);
-            return View(new StandViewModel(allStands, role, user,designacao));
+            bool isExpositivo = istand.isExpositivo(designacao);
+            return View(new StandViewModel(allStands, role, user,designacao,isExpositivo));
         }        
 
     }
