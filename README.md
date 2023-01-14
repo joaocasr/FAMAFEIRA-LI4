@@ -51,3 +51,6 @@ De notar que o sucesso da aplicação estará dependente da frequência com que 
 
 ## Catálogo de Produtos
 <img src="docs/produtossc.JPG" width="1000px"/>
+
+## Registo de Compras
+<img src="docs/registossc.JPG" width="1000px"/>
