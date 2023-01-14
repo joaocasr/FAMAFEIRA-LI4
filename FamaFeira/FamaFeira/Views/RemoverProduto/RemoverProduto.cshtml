@@ -1,0 +1,23 @@
+﻿@model Produto
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/Produtos.css">
+</head>
+<body>
+    @if (TempData["erroDelProduto"] != null)
+    {
+        <div>
+            <strong>Erro!</strong> O produto que digitou não existe.
+        </div>
+    }
+    <div>
+        <h1>Remover Produto</h1>
+        <form action="delProduto" method="post">
+
+            <td>@Html.TextBoxFor(m=>m.codigo,new { @class = "form-control", placeholder="Código",style ="width:300px" })</td>
+
+            <input type="submit" onclick="delProduto" value="Remover" />
+        </form>
+    </div>
+</body>
+</html>
