@@ -41,7 +41,10 @@ De notar que o sucesso da aplicação estará dependente da frequência com que 
 
 
 ## Autenticação
+### Login
 <img src="docs/loginsc.JPG" width="1000px"/>
+
+### Registo de Conta
 <img src="docs/registocontasc.JPG" width="1000px"/>
 
 ## Catálogo de Feiras
