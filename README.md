@@ -42,22 +42,22 @@ De notar que o sucesso da aplicação estará dependente da frequência com que 
 
 ## Autenticação
 ### Login
-<img src="docs/loginsc.JPG" width="1000px"/>
+<img src="img/loginsc.JPG" width="1000px"/>
 
 ### Registo de Conta
-<img src="docs/registocontasc.JPG" width="1000px"/>
+<img src="img/registocontasc.JPG" width="1000px"/>
 
 ## Catálogo de Feiras
-<img src="docs/feirassc.JPG" width="1000px"/>
+<img src="img/feirassc.JPG" width="1000px"/>
 
 ## Catálogo de Stands
-<img src="docs/standssc.JPG" width="1000px"/>
+<img src="img/standssc.JPG" width="1000px"/>
 
 ## Catálogo de Produtos
-<img src="docs/produtossc.JPG" width="1000px"/>
+<img src="img/produtossc.JPG" width="1000px"/>
 
 ## Registo de Compras
-<img src="docs/registossc.JPG" width="1000px"/>
+<img src="img/registossc.JPG" width="1000px"/>
 
 ## Resumo 
 
