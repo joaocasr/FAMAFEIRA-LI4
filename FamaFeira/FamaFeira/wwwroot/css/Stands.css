@@ -1,0 +1,34 @@
+﻿.grid-container {
+    display: grid;
+    grid-template-columns: 900px;
+    background-color: #FFF;
+    grid-gap: 20px;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    font-size: 15px;
+    background-color: #b7d7ff;
+    border-radius: 15px;
+}
+
+.elevation {
+    box-shadow: 0 10px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}
+
+.module {
+    padding: 1rem;
+    background: white;
+}

@@ -1,0 +1,28 @@
+﻿@model Feira
+<html>
+<head>
+    <link rel="stylesheet" href="../../css/Feiras.css">
+</head>
+<body>
+    <div>
+        <h1>Remover Feira</h1>
+        <form action="DelFeira" method="post">
+
+            <td>@Html.TextBoxFor(m => m.designacao,new { @class = "form-control", placeholder="Designação",style ="width:300px" })</td>
+            <input type="submit" onclick="DelFeira" value="Remover" />
+        </form>
+    </div>
+    @if (TempData["feiranexiste"] != null)
+    {
+        <div>
+            <strong>Erro!</strong> A feira que digitou não existe.
+        </div>
+    }
+    @if (TempData["feiraremovida"] != null)
+    {
+        <div>
+            <strong>Sucesso!</strong> A feira que digitou foi removida com sucesso.
+        </div>
+    }
+</body>
+</html>
